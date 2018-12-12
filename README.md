@@ -15,3 +15,5 @@ To build just type
 ```
 make
 ```
+
+in the **src/** folder
