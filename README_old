@@ -1,0 +1,76 @@
+This is version 4 (or communal version) of CASCADE which I suggest we
+call CASCADE2000.
+
+To compile:
+
+make lib
+make cascade
+
+Check the compilation flags in the Makefile file as well as the plotting
+routines you want to use. There is a set of dummy routines for those who do
+not wish any runtime graphics.
+
+This should create two libraries in the LIB sub-directory: libxplot.a and
+libnn2d.a. These libraries are the "standard" versions of the X11 plotting
+routines developed by Jean Braun and the natural neighbour routines
+developed by Malcolm Sambridge and Jean Braun. If you want your version of
+CASCADE to remain compatile with further development of these libraries
+by the authors, do not attempt to modify them; let us know if there is
+a bug...
+
+It is hard to really define what is modified in this version because
+I went through a large number of items requested from all in the group.
+
+Among them:
+- complete modularity: each routine does only one thing and each argument
+in the calling list is defined (they are about 30 separate subroutines now)
+- modify the convergence criterion in the iterative solver of the diffusion
+equation to allow for very large model runs
+- modify the fluvial erosion algorithm to use slope, not height difference
+to determine where the water is going (this was already modified in an
+updated version of version 2, thanks to Philippe)
+- modify the algorithm to deal with local minima to make sure that the
+water goes out of lakes through the proper sill and does not go uphill
+(again thanks to Philippe for pointing out this problem); the new
+version is in fact faster than the old one...
+- modify the cascade algorithm to make it more performant
+- all outputs are in ASCII and stored in a variety of files in a special
+directory (different for each run)
+- input can be hard-wired in or read from an input file; this is true for
+general parameters and nodal geometry, bc, initial topography, etc...
+- erosion parameters (3 in the present version, but it is allowed to have
+as many as needed) are stored in a single array as well as what I called
+the "memory" of the model (ie all nodal values that have to be memorized
+from one time step to the next);
+- dynamic updating of the mesh is simplified (as suggested by Philippe)
+by the introduction of these two super-arrays.
+- graphic calls in the main program to help debugging but a set of dummy
+graphic routines for those who dont have an X-windows compatible system
+- graphic program has been added that uses plain X-windows calls and should
+therefore run on any Unix machine
+- debugging facility which, when turned on, tells you where the program 
+was interrupted
+- more documentation of what is happening inside each routine
+- list of subroutines called within each subroutine
+
+As you see, this has been a major rewritting exercise and I cannot promise
+that this new code is completely error free. Please use it and let me know
+AS SOON AS POSSIBLE where you have encountered problems or noticed mistakes.
+
+The main reason for this new version to exist is that it should provide a
+basis for all future improvements, new modules, etc... It is quite essential
+that you try to keep the "style" of the code intact if you wish
+your additions/modifications to be considered by all.
+
+May I suggest that if an error is found in this version or if a major
+improvement can be done to it, you pass it on to me as soon as possible and
+I will incorporate it (if everyone agrees). Add-ons should be well
+documented so that we can easily incorporate them. You have to document
+all changes to the existing routines/main program that are required as
+well as provide the new code IN A SUBROUTINE/FUNCTION.
+
+Thank you for your feedback,
+
+Jean Braun
+Canberra 2000
+
