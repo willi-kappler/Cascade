@@ -4,7 +4,7 @@ This is a fork and modified version of Cascade, originally developed by Jean Bra
 
 Changes have been made by the [ESD Group of the University of Tübingen](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen-kontakte/mineralogie-geodynamik/forschungsbereich/geologie/workgroup/).
 
-Most changes have been done by Willi Kappler and [Paul R. Eizenhöfer](<paul-reinhold.eizenhoefer@uni-tuebingen.de>).
+Most changes have been done by Willi Kappler and [Paul R. Eizenhöfer](mailto:paul-reinhold.eizenhoefer@uni-tuebingen.de).
 
 A paper has been published describing the recent changes by Paul R. Eizenhöfer.
 
