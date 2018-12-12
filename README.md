@@ -1,6 +1,6 @@
 # IceCascade
 
-This is a fork and modified version of Cascade, originally developed by Jean Braun.
+This is a fork and modified version of Cascade, originally developed by [Jean Braun](https://github.com/jeanbraun/Cascade).
 
 Changes have been made by the [ESD Group of the University of Tübingen](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/geowissenschaften/arbeitsgruppen-kontakte/mineralogie-geodynamik/forschungsbereich/geologie/workgroup/).
 
