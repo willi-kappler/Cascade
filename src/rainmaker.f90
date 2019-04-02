@@ -282,7 +282,7 @@
 ! use standard routine form my thesis.
       call moist_div(z,dzdy,dzdx,nxs,nys,configData%wnd, &
             configData%angle,temperature,configData%a0,configData%a1, &
-            configData%alf,divq)
+            configData%alf,divq, configData%xlapse_rate)
 
 ! output moist conv.
 !      open(unit=21, file = 'divq.dat', status = 'new')
@@ -426,7 +426,7 @@
 
 !----------------------------------------------------------------
       subroutine moist_div(z,dzdy,dzdx,nxs,nys,wnd,angle,Tbck,a0,a1, &
-          alf,divq)
+          alf,divq, xlapse_rate)
 !----------------------------------------------------------------
 ! code to calculate moisture divergence from the w and T fields passed 
 ! calculated in the main program.
@@ -467,8 +467,7 @@
       parameter(pi=3.1415927_8) ! FIX_PI
 
 ! lapse rate
-      real(8) :: gamma
-      parameter(gamma = -6.5E-03_8)
+      real(8) :: xlapse_rate
 ! Sat. vap. pres. params...  
 ! and error function parameters for esat distribution.
       parameter(a=17.67_8,b=243.5_8,e0=611.2_8)
@@ -509,7 +508,7 @@
           
 ! divq=esat*(I1+I2)
 ! change temperatue by changing 0.0 here.
-           T = Tbck+gamma*z(i,j)
+           T = Tbck + xlapse_rate * z(i,j)
            if (T < -100.0_8) then
                 print *, "rainmaker: T=", T
                 print *, "z(i,j)=", z(i,j), ", i, j=", i, j
